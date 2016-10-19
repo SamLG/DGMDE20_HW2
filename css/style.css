@@ -1,5 +1,8 @@
 html {
   box-sizing: border-box;
+  /*added lines 4, 5 to make footer sticky http://mystrd.at/modern-clean-css-sticky-footer/*/
+  position: relative;
+  min-height: 100%;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -8,8 +11,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     /*background image by George Hodan http://www.publicdomainpictures.net/view-image.php?image=67622&picture=old-white-background license: https://creativecommons.org/publicdomain/zero/1.0/*/
     background: url("../images/old-white-background.jpg") white;
+    /*remove any initial styling of padding or margin*/
     padding: 0;
-    margin: 0;
+    /*margin: 0;*/
+    /*added lines 18 to make footer sticky http://mystrd.at/modern-clean-css-sticky-footer/*/
+    margin: 0 0 100px;
 }
 #pawpreciation {
     /*background image by Larry Wentzel https://www.flickr.com/photos/wentzelepsy/3267936715 license:https://creativecommons.org/licenses/by/2.0/*/
@@ -38,14 +44,13 @@ header h1 {
     float: left;
     text-align: center;
 }
-.wrapper {
+main {
     width: 80%;
     padding: 7em 1em 1em 1em;
-    /*border: 1px solid black;*/
     overflow: auto;
     margin: 0 auto;
 }
-.wrapper img {
+main img {
     border-radius: .5em;
 }
 .floatright {
@@ -63,7 +68,6 @@ header h1 {
 }
 article:first-of-type {
     width: 78%;
-    /*border: 1px double blue;*/
     padding: 1em;
     margin-right: 1em;
     float:left;
@@ -86,12 +90,28 @@ aside, .side {
     margin-right: 0;
     margin-bottom: 1em;
     padding: 1em;
-    background-color: rgba(255, 255, 255, 0.6);/*rgba(185, 198, 212, 0.3);*/
+    background-color: rgba(255, 255, 255, 0.6);
     position: relative;
     border-radius: .5em;
     -webkit-box-shadow: 13px 13px 10px -6px rgba(0,0,0,0.68);
     -moz-box-shadow: 13px 13px 10px -6px rgba(0,0,0,0.68);
     box-shadow: 13px 13px 10px -6px rgba(0,0,0,0.68);
+}
+.resources article:first-of-type {
+    width:60%;
+    /*remove inherited column styling*/
+    -webkit-column-count: 1;
+   -moz-column-count: 1;
+        column-count: 1;
+        -webkit-column-rule: 0px solid grey;
+           -moz-column-rule: 0px solid grey;
+                column-rule: 0px solid grey;
+}
+.resources aside {
+    width:38%;
+}
+aside h2 {
+    font-size: 1.2em;
 }
 aside::after, .side::after {
     content: "";
@@ -132,14 +152,51 @@ nav a:hover {
     color: black;
     background-color: rgba(185, 198, 212, 1);
 }
+caption {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+table {
+    text-align: left;
+    font-size: .9em;
+    border: 1px black solid;
+}
+td, th {
+    padding: .3em;
+}
+table thead tr th, tr {
+    background: white;
+}
+tr:nth-of-type(odd) {
+    background: lightgrey;
+}
 footer {
     color: white;
     background: rgba(0, 0, 0, 0.9);
-    width: 100%;
+    /*width: 100%;*/
     text-align: center;
     padding: .5em;
+    /*added lines 180-184 to make footer sticky http://mystrd.at/modern-clean-css-sticky-footer/*/
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
 }
-/*screen reader only*/
+/*screen reader only styling adapted from: http://webaim.org/techniques/css/invisiblecontent/*/
 .sr-only {
-
+        position:absolute;
+        left:-10000px;
+        top:auto;
+        width:1px;
+        height:1px;
+        overflow:hidden;
+}
+.sr-only:focus {
+    position:static;
+    width:auto;
+    height:auto;
+    float: right;
+    padding-right: 4em;
+    color: white;
 }
