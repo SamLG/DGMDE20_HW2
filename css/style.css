@@ -53,6 +53,15 @@ main {
 main img {
     border-radius: .5em;
 }
+main a {
+    color: #000080;
+}
+main a:hover {
+    background: white; 
+}
+main a:visited {
+    color: #26004d;
+}
 .floatright {
     float: right;
     margin: 0 0 1em 1em;
@@ -78,7 +87,6 @@ article:first-of-type {
         -webkit-column-rule: 1px solid grey;
            -moz-column-rule: 1px solid grey;
                 column-rule: 1px solid grey;
-    border-radius: .5em;
     border-radius: .5em;
     -webkit-box-shadow: 13px 13px 10px -6px rgba(0,0,0,0.68);
     -moz-box-shadow: 13px 13px 10px -6px rgba(0,0,0,0.68);
